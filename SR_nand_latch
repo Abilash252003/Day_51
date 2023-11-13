@@ -1,0 +1,15 @@
+///100 Days of RTL///
+
+///Abilash P///
+
+///SR latch NAND///
+
+module SR_nand_latch (S, R, Qn, Qnbar);
+
+input  S, R;
+output Qn, Qnbar;
+
+assign Qn    = ~(S & Qnbar);
+assign Qnbar = ~(R & Qn);
+
+endmodule
