@@ -1,0 +1,16 @@
+///100 Days of RTL///
+
+///Abilash P///
+
+///SR latch NOR///
+
+module SR_nor_latch (S, R, Qn, Qnbar);
+
+input  S, R;
+output Qn, Qnbar;
+
+assign Qn    = ~(R | Qnbar);
+assign Qnbar = ~(S | Qn);
+
+endmodule
+
