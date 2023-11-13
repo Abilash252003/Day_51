@@ -1,0 +1,27 @@
+///100 Days of RTL///
+
+///Abilash P///
+
+///SR latch NAND///
+
+module SR_nand_latch_tb ();
+
+reg  S, R;
+wire Qn, Qnbar;
+
+SR_nand_latch DUT (.S(S), .R(R), .Qn(Qn), .Qnbar(Qnbar));
+
+integer i;
+
+initial
+begin
+   for(i=0; i<4; i=i+1)
+    begin
+       {S, R} = i;
+       #20;
+       $display ("The Input S = %b, R = %b", S, R);
+       $display ("The Output Qn = %b, Qnbar = %b", Qn, Qnbar);
+    end
+end
+
+endmodule
