@@ -1,0 +1,41 @@
+
+
+///100 Days of RTL///
+
+///Abilash P///
+
+///SR latch NOR///
+
+module SR_nor_latch_tb ();
+
+reg  S, R;
+wire Qn, Qnbar;
+
+SR_nor_latch DUT (.S(S), .R(R), .Qn(Qn), .Qnbar(Qnbar));
+
+integer i;
+
+initial
+begin
+   for(i=0; i<4; i=i+1)
+    begin
+       {S, R} = i;
+       #20;
+       $display ("The Input S = %b, R = %b", S, R);
+       $display ("The Output Qn = %b, Qnbar = %b", Qn, Qnbar);
+    end
+    
+    $display("To check the S=0, R=0 condition (Should print the previous state)");
+    
+    S = 1; R = 0;
+    #20;
+    $display ("The Input S = %b, R = %b", S, R);
+    $display ("The Output Qn = %b, Qnbar = %b", Qn, Qnbar);
+    
+    S = 0; R =0;
+    #20;
+    $display ("The Input S = %b, R = %b", S, R);
+    $display ("The Output Qn = %b, Qnbar = %b", Qn, Qnbar);
+end
+
+endmodule
